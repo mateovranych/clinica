@@ -1,0 +1,61 @@
+<div class="table-responsive">
+    <mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+      <!-- Position Column -->
+      <ng-container matColumnDef="position">
+        <mat-header-cell *matHeaderCellDef> # </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.position}} </mat-cell>
+      </ng-container>
+  
+      <!-- Nombre Column -->
+      <ng-container matColumnDef="nombre">
+        <mat-header-cell *matHeaderCellDef> Nombre </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.nombre}} </mat-cell>
+      </ng-container>
+  
+      <!-- Apellido Column -->
+      <ng-container matColumnDef="apellido">
+        <mat-header-cell *matHeaderCellDef> Apellido </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.apellido}} </mat-cell>
+      </ng-container>
+  
+      <!-- DNI Column -->
+      <ng-container matColumnDef="dni">
+        <mat-header-cell *matHeaderCellDef> DNI </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.dni}} </mat-cell>
+      </ng-container>
+  
+      <!-- Hora Column -->
+      <ng-container matColumnDef="hora">
+        <mat-header-cell *matHeaderCellDef> Hora </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.hora}} </mat-cell>
+      </ng-container>
+  
+      <!-- Fecha Column -->
+      <ng-container matColumnDef="fechaDic">
+        <mat-header-cell *matHeaderCellDef> Fecha </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.fechaDic}} </mat-cell>
+      </ng-container>
+  
+      <!-- Odontologo Column -->
+      <ng-container matColumnDef="Odontologo">
+        <mat-header-cell *matHeaderCellDef> Odontólogo </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.Odontologo}} </mat-cell>
+      </ng-container>
+  
+      <!-- Acciones Column -->
+      <ng-container matColumnDef="acciones">
+        <mat-header-cell *matHeaderCellDef> Acciones </mat-header-cell>
+        <mat-cell *matCellDef="let element">
+          <button mat-button [matMenuTriggerFor]="menu">Acciones</button>
+          <mat-menu #menu="matMenu">
+            <button mat-menu-item (click)="modificar(element)">Modificar</button>
+            <button mat-menu-item (click)="eliminar(element)">Eliminar</button>
+          </mat-menu>
+        </mat-cell>
+      </ng-container>
+  
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+  </div>
+  

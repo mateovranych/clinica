@@ -1,0 +1,66 @@
+<mat-toolbar>
+    <button mat-icon-button (click)="sidenav.toggle()">
+        <mat-icon *ngIf="!sidenav.opened">menu</mat-icon>
+        <mat-icon *ngIf="sidenav.opened">close</mat-icon>
+    </button>
+    Panel de Administrador
+</mat-toolbar>
+
+<mat-sidenav-container>
+    <mat-sidenav>
+        <mat-nav-list>
+            <mat-list-item (click)="sidenav.mode === 'over' && sidenav.toggle()" (click)="selectOption('Casa')">
+                <mat-icon matListItemIcon>home</mat-icon>
+                Casa
+            </mat-list-item>
+            <mat-list-item (click)="sidenav.mode === 'over' && sidenav.toggle()" (click)="selectOption('Secretarios')">
+                <mat-icon matListItemIcon>person</mat-icon>
+                Secretarios
+            </mat-list-item>
+            <mat-list-item (click)="sidenav.mode === 'over' && sidenav.toggle()" (click)="selectOption('Pacientes')">
+                <mat-icon matListItemIcon>person</mat-icon>
+                Pacientes
+            </mat-list-item>
+            <mat-list-item (click)="sidenav.mode === 'over' && sidenav.toggle()" (click)="selectOption('Turnos')">
+                <mat-icon matListItemIcon>library_books</mat-icon>
+                Turnos
+            </mat-list-item>
+            <mat-list-item (click)="sidenav.mode === 'over' && sidenav.toggle()" (click)="selectOption('Calendario')">
+                <mat-icon matListItemIcon>calendar_today</mat-icon> 
+                Calendario
+            </mat-list-item>
+            <mat-list-item (click)="cerrarSesion()" (click)="sidenav.mode === 'over' && sidenav.toggle()">
+                <mat-icon matListItemIcon>logout</mat-icon>
+                Cerrar Sesión
+            </mat-list-item>
+        </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content>
+        <div *ngIf="selectedOption === ''">
+            <app-casa></app-casa>
+        </div>
+        <div *ngIf="selectedOption === 'Casa'">    
+            <app-casa></app-casa>
+        </div>
+        <div *ngIf="selectedOption === 'Secretarios'">
+            <h2>Secretarios</h2>
+            <p>Aquí puedes gestionar los secretarios.</p>
+            <app-secretarios></app-secretarios>
+        </div>
+        <div *ngIf="selectedOption === 'Pacientes'">
+            <h2>Pacientes</h2>
+            <p>Aquí puedes gestionar los pacientes.</p>
+            <app-pacientes></app-pacientes>
+        </div>
+        <div *ngIf="selectedOption === 'Turnos'">
+            <h2>Turnos</h2>
+            <p>Aquí puedes gestionar los turnos.</p>
+            <app-turnos></app-turnos>
+        </div>
+        <div *ngIf="selectedOption === 'Calendario'">
+            <h2>Calendario</h2>
+            <p>Aquí puedes ver y gestionar el calendario.</p>
+            <app-calendario></app-calendario>
+        </div>
+    </mat-sidenav-content>
+</mat-sidenav-container>

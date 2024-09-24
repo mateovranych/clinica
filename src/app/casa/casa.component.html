@@ -1,0 +1,27 @@
+<div class="container">
+    <div class="left-section">
+      <mat-form-field appearance="fill" class="full-width">
+        <mat-label>Ingrese su DNI para buscar el paciente</mat-label>
+        <input matInput placeholder="DNI" [(ngModel)]="dniInput">
+      </mat-form-field>
+      <button mat-button (click)="buscarPaciente()">Buscar</button>
+    </div>
+  
+    <div class="right-section">
+      <div class="button-grid">
+        <div class="lightgray" (click)="openCrearPacienteDialog()">
+          <span>Registrar</span>
+        </div>
+        <div class="lightblue" (click)="tomarTurno()">
+          <span>Tomar Turno</span>
+        </div>
+        <div class="lightred" (click)="editarTurno()">
+          <span>Editar Turno</span>
+        </div>
+        <div class="lightgreen" (click)="eliminarTurno()">
+          <span>Eliminar Turno</span>
+        </div>
+      </div>
+    </div>
+  </div>
+  

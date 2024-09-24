@@ -1,0 +1,32 @@
+.table-responsive {
+    width: 100%;
+    overflow-x: auto; /* Permite el scroll horizontal */
+  }
+  
+  @media (max-width: 768px) {
+    .mat-header-cell, .mat-cell {
+      font-size: 12px; /* Reduce el tamaño del texto en pantallas pequeñas */
+    }
+  
+    .mat-elevation-z8 {
+      width: 100%;
+    }
+  
+    /* Oculta algunas columnas en pantallas pequeñas */
+    .mat-column-dni, 
+    .mat-column-hora, 
+    .mat-column-odontologo {
+      display: none;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .mat-header-cell, .mat-cell {
+      font-size: 10px; /* Reduce más el tamaño del texto en pantallas más pequeñas */
+    }
+  
+    .mat-column-apellido {
+      display: none; /* Oculta la columna apellido en pantallas muy pequeñas */
+    }
+  }
+  

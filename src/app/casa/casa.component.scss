@@ -1,0 +1,94 @@
+.container {
+    display: flex;
+    height: 100vh; /* Ajusta la altura total de la vista */
+    flex-direction: row; /* Layout horizontal por defecto */
+}
+
+.left-section, .right-section {
+    flex: 1; /* Ambas secciones ocupan la mitad de la pantalla */
+    display: flex;
+    flex-direction: column;
+    justify-content: center; /* Centra el contenido verticalmente */
+    align-items: center; /* Centra el contenido horizontalmente */
+    padding: 20px; /* Espaciado */
+}
+
+.right-section .button-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Dos columnas */
+    grid-template-rows: repeat(2, 1fr); /* Dos filas */
+    width: 80%; /* Ancho de la cuadrícula */
+    height: 80%; /* Altura de la cuadrícula */
+    gap: 10px; /* Espacio entre los divs */
+}
+
+.right-section .button-grid div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer; /* Cambia el cursor al pasar sobre el cuadrado */
+    border: 2px solid #ccc; /* Opcional: borde alrededor de cada cuadro */
+    font-size: 24px; /* Tamaño del texto */
+    text-align: center; /* Centra el texto */
+    color: #fff; /* Color del texto */
+    transition: background-color 0.3s; /* Efecto de transición para el color de fondo */
+    height: 100%; /* Asegura que ocupe todo el espacio disponible */
+}
+
+.right-section .button-grid div.lightgray {
+    background-color: lightgray;
+}
+
+.right-section .button-grid div.lightgray:hover {
+    background-color: gray; /* Cambia a un tono más oscuro al pasar el mouse */
+}
+
+.right-section .button-grid div.lightblue {
+    background-color: lightblue;
+}
+
+.right-section .button-grid div.lightblue:hover {
+    background-color: deepskyblue; /* Cambia a un tono más oscuro al pasar el mouse */
+}
+
+.right-section .button-grid div.lightred {
+    background-color: lightcoral;
+}
+
+.right-section .button-grid div.lightred:hover {
+    background-color: red; /* Cambia a un tono más oscuro al pasar el mouse */
+}
+
+.right-section .button-grid div.lightgreen {
+    background-color: lightgreen;
+}
+
+.right-section .button-grid div.lightgreen:hover {
+    background-color: green; /* Cambia a un tono más oscuro al pasar el mouse */
+}
+
+/* Media Queries para pantallas más pequeñas */
+
+@media (max-width: 768px) {
+    .container {
+        flex-direction: column; /* Cambia el layout a vertical en pantallas pequeñas */
+    }
+
+    .right-section .button-grid {
+        grid-template-columns: 1fr; /* Una sola columna en pantallas pequeñas */
+        grid-template-rows: repeat(4, 1fr); /* Cuatro filas */
+        width: 100%; /* Ajusta el ancho de la cuadrícula */
+        height: auto; /* Ajusta la altura automáticamente */
+    }
+}
+
+@media (max-width: 480px) {
+    .right-section .button-grid div {
+        font-size: 18px; /* Reduce el tamaño de la fuente en pantallas pequeñas */
+        padding: 10px; /* Reduce el padding */
+    }
+
+    .left-section, .right-section {
+        padding: 10px; /* Reduce el espaciado en pantallas pequeñas */
+    }
+}
